@@ -119,6 +119,7 @@ background: rgba(152, 154, 160, 0);
      .card {
     width: 150px;
     height: 210px;
+    position: relative;
     background-color: rgb(244, 245, 247);
     border-radius: 10px;
     overflow: hidden;
@@ -137,6 +138,99 @@ background: rgba(152, 154, 160, 0);
         
        
 
+}
+.request-button {
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    z-index: 1;
+    width: max-content;
+    max-width: calc(100% - 11px);
+    padding: 5px 6px;
+    border: 0;
+    border-radius: 8px;
+    background: #dba904;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+}
+.card:hover .request-button,
+.card:focus-within .request-button {
+    opacity: 1;
+    pointer-events: auto;
+}
+.request-button:hover {
+    background: #0e7a05;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+.request-dialog {
+    width: min(90vw, 420px);
+    margin: auto;
+    padding: 24px;
+    border: 0;
+    border-radius: 14px;
+    color: #e4e4e4;
+    background: rgba(0, 0, 255, 0);
+  
+    /* Frosted glass blur */
+            backdrop-filter: blur(2px);
+             backdrop-filter: blur(3px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+
+    /* Glass edges */
+    border: 1px solid rgba(114, 110, 110, 0.616);
+    border-radius: 20px;
+
+    /* Soft glass shadow */
+   box-shadow:
+        0px 8px 32px rgb(46, 209, 231),2px 0px 23px rgb(100, 4, 87),
+        inset 0px 0px 11px rgb(68, 240, 211);
+            width: 70%;
+            padding:10px  10px;
+}
+.request-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.315);
+}
+.request-dialog form {
+    display: grid;
+    gap: 12px;
+}
+.request-dialog h1 {
+    margin-bottom: 4px;
+    font-size: 30px;
+}
+.request-dialog input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #777;
+    border-radius: 13px;
+    font: inherit;
+}
+.request-dialog-actions {
+    flex-wrap: nowrap;
+    gap: 15px;
+    margin-top: 8px;
+    background: rgba(7, 7, 255, 0);
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.request-dialog-actions button {
+    padding: 5px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: #0820aa;
+    color: white;
+    cursor: pointer;
+}
+.request-dialog-actions button:first-child {
+    background: #bd1111;
 }
 .card img {
    width: 100%;
@@ -266,12 +360,14 @@ video{
 .footer a{
     color: rgb(40, 212, 17);
     text-decoration: none;
-    flex-wrap: wrap;
-    
-    align-items: center;
-     justify-content: space-between;
-     gap: 16px;
-
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.social-links a {
+    font-size: 24px;
 }
         .search{
             margin-left: 20%;
@@ -306,6 +402,7 @@ video{
 @media screen and (max-width: 600px) {
     .brand {
         font-size: 25px;
+        
     }
 }
 
@@ -530,6 +627,22 @@ button a{
         padding-bottom: 8px;
     }
 
+    .request-button {
+        font-size: 11px;
+        padding: 7px 8px;
+    }
+
+    .request-dialog-actions {
+        gap: 8px;
+    }
+
+    .request-dialog-actions button {
+        flex: 0 1 auto;
+        padding: 5px 8px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
     .card img {
         height: 105px;
         padding: 8px;
@@ -560,7 +673,7 @@ button a{
     }
 
     .cloth img {
-        height: 110px;
+        height: 125px;
     }
 
     .cloth h2 {
@@ -650,5 +763,12 @@ button a{
     body {
         overflow: auto !important;
         position: static !important;
+    }
+}
+
+@media (hover: none) {
+    .request-button {
+        opacity: 1;
+        pointer-events: auto;
     }
 }

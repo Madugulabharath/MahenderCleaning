@@ -151,6 +151,11 @@
         <h2>Bucket water</h2> <hr>
         <p>bucket of clean water is used to clean vehicles</p>
     </div>
+     <div class="cloth">
+        <img src="images/Spray.jfif" alt="">
+        <h2>Car Spray</h2> <hr>
+        <p>used to clean the visors of the vehicle</p>
+    </div>
    </div>
 
   
@@ -168,7 +173,7 @@
             <h1  >CONTACT US</h1><hr>
             <p>📞9642639639</p>
             <p>📞9154639639</p>
-            <p>Email: mahenderdailycleaning639.com</p>
+            <p>📧Email: mahenderdailycleaning639.com</p>
 
         </div>
          <div class="about">
@@ -183,6 +188,7 @@
             <P>PT-789, YELLAAMMABANDA,
                 KUKKATPALLY, MEDCHAL, TELANGANA 500072
             </P>
+            <div class="social-links">
     <a href="https://www.instagram.com/dailycleaning020/"
    target="_blank"
    rel="noopener noreferrer"
@@ -199,12 +205,81 @@
     <i class="bi bi-youtube"></i>
 
 </a>
+            </div>
             
         </div>
         
          </div>
         <p>Copyright © 2026 My Mahender Daily Car and Bike Cleaning Website</p>
     </div>
-   
+    <dialog class="request-dialog" id="requestDialog" aria-labelledby="requestDialogTitle">
+        <form id="cleaningRequestForm">
+            <h1 id="requestDialogTitle">Send cleaning request</h1>
+            <p id="selectedVehicle" style="font-size: 18px; color:rgb(254, 255, 255)"></p>
+            
+            <input id="customerName" name="customerName" autocomplete="name" required placeholder="Your name">
+            
+            <input id="customerMobile" name="customerMobile" type="tel" autocomplete="tel" pattern="[0-9+() -]{7,20}" title="Enter a valid mobile number" required placeholder="Your mobile number">
+            
+            <input id="customerBlock" name="customerBlock" autocomplete="address-line1" required placeholder="Your block">
+            
+            <input id="customerFlat" name="customerFlat" required placeholder="Your flat number">
+            <div class="request-dialog-actions">
+                <button type="button" id="cancelRequest">Cancel</button>
+                <button type="submit">Continue to WhatsApp</button>
+            </div>
+        </form>
+    </dialog>
+    <script>
+        const requestDialog = document.getElementById("requestDialog");
+        const requestForm = document.getElementById("cleaningRequestForm");
+        const selectedVehicle = document.getElementById("selectedVehicle");
+        const customerName = document.getElementById("customerName");
+        const customerMobile = document.getElementById("customerMobile");
+        const customerBlock = document.getElementById("customerBlock");
+        const customerFlat = document.getElementById("customerFlat");
+        let requestedCard;
+
+        document.querySelectorAll(".card").forEach((card) => {
+            const vehicle = card.querySelector(".card-content h2").textContent.trim();
+            const price = card.querySelector(".card-content p").textContent.trim();
+            const requestButton = document.createElement("button");
+            requestButton.type = "button";
+            requestButton.className = "request-button";
+            requestButton.textContent = "Send cleaning request";
+            requestButton.setAttribute("aria-label", `Send cleaning request for ${vehicle}`);
+            card.append(requestButton);
+
+            requestButton.addEventListener("click", () => {
+                requestedCard = { vehicle, price };
+                selectedVehicle.textContent = `${vehicle} — ${price}`;
+                requestDialog.showModal();
+                customerName.focus();
+            });
+        });
+
+        document.getElementById("cancelRequest").addEventListener("click", () => {
+            requestDialog.close();
+        });
+
+        requestForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (!requestedCard || !requestForm.reportValidity()) {
+                return;
+            }
+
+            const message = [
+                "Cleaning request",
+                `Vehicle: ${requestedCard.vehicle}`,
+                `Price: ${requestedCard.price}`,
+                `Customer: ${customerName.value.trim()}`,
+                `Mobile: ${customerMobile.value.trim()}`,
+                `Block: ${customerBlock.value.trim()}`,
+                `Flat number: ${customerFlat.value.trim()}`
+            ].join("\n");
+
+            window.location.href = `https://wa.me/919642639639?text=${encodeURIComponent(message)}`;
+        });
+    </script>
 </body>
 </html>

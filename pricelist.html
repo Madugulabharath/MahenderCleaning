@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>PriceList</title>
 
     <link rel="stylesheet" href="cleaning.css">
     <style>
-        body{
-         margin: 0;
-    overflow: hidden;
-        position: sticky;
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: static;
+            background-image: url(images/background.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
     </style>
 
@@ -20,7 +25,7 @@
 
 <body>
 
-    <main>
+    
 
         <!-- Back to Home Button -->
         <button type="button">
@@ -53,19 +58,19 @@
 
                     <tr>
                         <td>1</td>
-                        <td>HATCHBACk -Maruti alto </td>
+                        <td>Maruti alto </td>
                         <td>500rupees</td>
                     </tr>
 
                     <tr>
                         <td>2</td>
-                        <td>HATCHBACK-R-kwid </td>
+                        <td>R-kwid </td>
                         <td>500rupees</td>
                     </tr>
 
                     <tr>
                         <td>3</td>
-                        <td>HATCHBACK-S-presso </td>
+                        <td>S-presso </td>
                         <td>500rupees</td>
                     </tr>
 
@@ -311,13 +316,13 @@
             </table>
 
             <!-- No Results Message -->
-            <p id="noResults" hidden>
-                <h1 style="color: rgb(228, 16, 16); margin-left: 34%;font-size: 64px;">No results found.</h1>
+            <p id="noResults" class="no-results-message" hidden role="status" aria-live="polite">
+                No results found.
             </p>
 
         </div>
 
-    </main>
+    
 
     <!-- JavaScript -->
     <script>

@@ -217,13 +217,11 @@
             <h1 id="requestDialogTitle">Send cleaning request</h1>
             <p id="selectedVehicle" style="font-size: 18px; color:rgb(254, 255, 255)"></p>
             
-            <input id="customerName" name="customerName" autocomplete="name" required placeholder="Your name">
-            
-            <input id="customerMobile" name="customerMobile" type="tel" autocomplete="tel" pattern="[0-9+() -]{7,20}" title="Enter a valid mobile number" required placeholder="Your mobile number">
-            
-            <input id="customerBlock" name="customerBlock" autocomplete="address-line1" required placeholder="Your block">
-            
-            <input id="customerFlat" name="customerFlat" required placeholder="Your flat number">
+            <input id="communityName" name="communityName" required aria-label="Community name" placeholder="Community name (e.g., Avani)">
+            <input id="blockFlat" name="blockFlat" required aria-label="Block and flat number" placeholder="Block and flat no. (e.g., A-2002)">
+            <input id="vehicleNumber" name="vehicleNumber" required aria-label="Vehicle number" placeholder="Vehicle no. (e.g., TSXXXXX)">
+            <input id="parkingFloor" name="parkingFloor" required aria-label="Parking floor" placeholder="Parking floor (e.g., -1/B1)">
+            <input id="parkingNumber" name="parkingNumber" required aria-label="Parking number" placeholder="Parking no. (e.g., 500/A1002)">
             <div class="request-dialog-actions">
                 <button type="button" id="cancelRequest">Cancel</button>
                 <button type="submit">Continue to WhatsApp</button>
@@ -234,10 +232,11 @@
         const requestDialog = document.getElementById("requestDialog");
         const requestForm = document.getElementById("cleaningRequestForm");
         const selectedVehicle = document.getElementById("selectedVehicle");
-        const customerName = document.getElementById("customerName");
-        const customerMobile = document.getElementById("customerMobile");
-        const customerBlock = document.getElementById("customerBlock");
-        const customerFlat = document.getElementById("customerFlat");
+        const communityName = document.getElementById("communityName");
+        const blockFlat = document.getElementById("blockFlat");
+        const vehicleNumber = document.getElementById("vehicleNumber");
+        const parkingFloor = document.getElementById("parkingFloor");
+        const parkingNumber = document.getElementById("parkingNumber");
         let requestedCard;
 
         document.querySelectorAll(".card").forEach((card) => {
@@ -254,7 +253,7 @@
                 requestedCard = { vehicle, price };
                 selectedVehicle.textContent = `${vehicle} — ${price}`;
                 requestDialog.showModal();
-                customerName.focus();
+                communityName.focus();
             });
         });
 
@@ -272,10 +271,11 @@
                 "Cleaning request",
                 `Vehicle: ${requestedCard.vehicle}`,
                 `Price: ${requestedCard.price}`,
-                `Customer: ${customerName.value.trim()}`,
-                `Mobile: ${customerMobile.value.trim()}`,
-                `Block: ${customerBlock.value.trim()}`,
-                `Flat number: ${customerFlat.value.trim()}`
+                `Community: ${communityName.value.trim()}`,
+                `Block and flat no.: ${blockFlat.value.trim()}`,
+                `Vehicle no.: ${vehicleNumber.value.trim()}`,
+                `Parking floor: ${parkingFloor.value.trim()}`,
+                `Parking no.: ${parkingNumber.value.trim()}`
             ].join("\n");
 
             window.location.href = `https://wa.me/919642639639?text=${encodeURIComponent(message)}`;

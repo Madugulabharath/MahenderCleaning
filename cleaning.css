@@ -187,8 +187,8 @@ background: rgba(152, 154, 160, 0);
 
     /* Soft glass shadow */
    box-shadow:
-        0px 8px 32px rgb(46, 209, 231),2px 0px 23px rgb(100, 4, 87),
-        inset 0px 0px 11px rgb(68, 240, 211);
+        0px 8px 40px rgb(46, 209, 231),5px 0px 23px rgb(97, 4, 84),
+        inset 0px 0px 11px rgb(9, 124, 139);
             width: 70%;
             padding:10px  10px;
 }

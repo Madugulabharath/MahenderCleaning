@@ -765,10 +765,3 @@ button a{
         position: static !important;
     }
 }
-
-@media (hover: none) {
-    .request-button {
-        opacity: 1;
-        pointer-events: auto;
-    }
-}

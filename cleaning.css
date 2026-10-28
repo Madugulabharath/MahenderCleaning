@@ -252,14 +252,15 @@ background: rgba(152, 154, 160, 0);
         }
         li a:hover{
             transform: scale(1.1);
-            background-color: rgb(13, 210, 224);
-            box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(70, 57, 57, 0.15);
+            background-color: rgb(95, 209, 230);
+           box-shadow:
+        0px 0px 40px rgb(106, 223, 238),5px 0px 55px rgb(244, 245, 245),
+        inset 0px 0px 11px rgb(9, 124, 139);
             background-size: 20px;
-            border-radius: 10px;
+            border-radius:4PX;
             color: black;
             transform-origin: center;
+            
             
             
         }

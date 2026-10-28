@@ -33,6 +33,13 @@
             <button class="login-button" type="submit">Login</button>
             <button class="forgot-button" type="button">Forgot password?</button>
         </form>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            window.location.assign("Cleaningprocess.html");
+        });
+    </script>
+    
     
 </body>
 </html>

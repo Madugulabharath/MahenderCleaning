@@ -40,25 +40,11 @@
 </form>
 
 <script>
-  document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Stops the form from trying to POST to a server
-    
-    const user = document.getElementById('username').value;
-    const pass = document.getElementById('password').value;
-
-    // Define your mock credentials
-    const correctUser = "admin";
-    const correctPass = "password123";
-
-    if (user === correctUser && pass === correctPass) {
-      alert("Login successful!");
-      // Redirect to your dashboard page, e.g.:
-      // window.location.href = "dashboard.html";
-    } else {
-      alert("Invalid username or password!");
-    }
-  });
-</script>
+        document.getElementById("login-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            window.location.assign("Cleaningprocess.html");
+        });
+    </script>
     
     
 </body>
